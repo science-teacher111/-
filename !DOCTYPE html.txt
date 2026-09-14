@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SCIENCE LAB | 과학을 설명하는 힘</title>
+
+  <meta name="description"
+        content="소수정예 그룹 화상 과학수업. 개념 이해부터 문제풀이, 심화 사고, 개인별 피드백까지.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Pretendard",
+        "Noto Sans KR",
+        sans-serif;
+      color: #111827;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #eeeeee;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      width: min(1100px, 90%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .nav-links a:hover {
+      color: #111827;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 780px;
+      padding: 170px 20px 100px;
+      background:
+        radial-gradient(circle at 80% 20%, #e0e7ff 0, transparent 28%),
+        radial-gradient(circle at 20% 80%, #dbeafe 0, transparent 25%),
+        #f8fafc;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      width: min(1100px, 90%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 13px;
+      background: #111827;
+      color: white;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #4f46e5;
+    }
+
+    .hero-description {
+      color: #64748b;
+      font-size: 18px;
+      max-width: 570px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #4f46e5;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #4338ca;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Hero Card */
+
+    .hero-card {
+      background: white;
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 25px 70px rgba(15,23,42,0.10);
+    }
+
+    .card-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h3 {
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    .class-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flow-item {
+      padding: 15px 18px;
+      background: #f8fafc;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .flow-number {
+      font-size: 12px;
+      color: #6366f1;
+      font-weight: 800;
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+
+    section {
+      padding: 110px 20px;
+    }
+
+    .section-inner {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .section-tag {
+      color: #4f46e5;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: #64748b;
+      max-width: 600px;
+      margin-bottom: 55px;
+    }
+
+    /* =========================
+       WHY
+    ========================= */
+
+    .why {
+      background: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 30px 25px;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      transition: 0.2s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 13px;
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .feature h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    /* =========================
+       METHOD
+    ========================= */
+
+    .method {
+      background: #f8fafc;
+    }
+
+    .method-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .method-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .method-number {
+      font-size: 12px;
+      color: #6366f1;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .method-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .method-card p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CURRICULUM
+    ========================= */
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .curriculum {
+      padding: 30px;
+      border-radius: 20px;
+      background: #111827;
+      color: white;
+    }
+
+    .curriculum h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .curriculum p {
+      color: #cbd5e1;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .curriculum ul {
+      list-style: none;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    .curriculum li {
+      margin-bottom: 7px;
+    }
+
+    .curriculum li::before {
+      content: "✓";
+      margin-right: 8px;
+      color: #818cf8;
+    }
+
+    /* =========================
+       DIFFERENCE
+    ========================= */
+
+    .difference {
+      background: #f8fafc;
+    }
+
+    .comparison {
+      max-width: 800px;
+      margin: auto;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    th, td {
+      padding: 18px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background: #111827;
+      color: white;
+    }
+
+    td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    /* =========================
+       TEACHER
+    ========================= */
+
+    .teacher-box {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .teacher-photo {
+      height: 350px;
+      background: linear-gradient(135deg, #e0e7ff, #f1f5f9);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .teacher-text h3 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .teacher-text p {
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .teacher-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    /* =========================
+       REVIEW
+    ========================= */
+
+    .reviews {
+      background: #f8fafc;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .review p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .review span {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 130px 20px;
+      background: #111827;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(35px, 5vw, 55px);
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #cbd5e1;
+      margin-bottom: 35px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #0b1120;
+      color: #94a3b8;
+      padding: 35px 20px;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      width: min(1100px, 90%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 130px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .feature-grid,
+      .method-list,
+      .curriculum-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .teacher-box {
+        grid-template-columns: 1fr;
+      }
+
+      .teacher-photo {
+        height: 250px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a href="#" class="logo">
+        SCIENCE LAB
+      </a>
+
+      <div class="nav-links">
+        <a href="#why">수업 특징</a>
+        <a href="#method">수업 방식</a>
+        <a href="#curriculum">커리큘럼</a>
+        <a href="#teacher">선생님</a>
+        <a href="#apply">체험 신청</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="eyebrow">
+          소수정예 그룹 화상 과학수업
+        </div>
+
+        <h1>
+          과학을<br>
+          <span>설명하는 힘</span>을 기릅니다.
+        </h1>
+
+        <p class="hero-description">
+          단순히 개념을 듣고 문제를 푸는 수업이 아닙니다.
+          학생이 직접 생각하고, 설명하고, 문제를 해결하면서
+          과학적 사고력을 만들어갑니다.
+        </p>
+
+        <div class="buttons">
+
+          <!-- 아래 링크를 실제 신청폼 주소로 변경 -->
+          <a
+            href="https://forms.google.com/"
+            target="_blank"
+            class="btn btn-primary">
+            무료 체험수업 신청 →
+          </a>
+
+          <a
+            href="#method"
+            class="btn btn-secondary">
+            수업 방식 알아보기
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="card-label">
+          SCIENCE LAB CLASS
+        </div>
+
+        <h3>
+          한 번의 수업도<br>
+          이렇게 진행됩니다.
+        </h3>
+
+        <div class="class-flow">
+
+          <div class="flow-item">
+            <span>진단</span>
+            <span class="flow-number">01</span>
+          </div>
+
+          <div class="flow-item">
+            <span>개념 이해</span>
+            <span class="flow-number">02</span>
+          </div>
+
+          <div class="flow-item">
+            <span>문제 풀이</span>
+            <span class="flow-number">03</span>
+          </div>
+
+          <div class="flow-item">
+            <span>학생의 설명</span>
+            <span class="flow-number">04</span>
+          </div>
+
+          <div class="flow-item">
+            <span>심화 문제</span>
+            <span class="flow-number">05</span>
+          </div>
+
+          <div class="flow-item">
+            <span>개인별 피드백</span>
+            <span class="flow-number">06</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       WHY
+  ========================= -->
+
+  <section id="why" class="why">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        WHY SCIENCE LAB
+      </div>
+
+      <h2 class="section-title">
+        그룹 수업의 효율성에<br>
+        개인 과외의 관리력을 더했습니다.
+      </h2>
+
+      <p class="section-description">
+        같은 수업을 듣더라도 학생마다 부족한 부분은 다릅니다.
+        SCIENCE LAB은 그룹 수업 안에서도 학생 개개인의 학습 상태를 확인합니다.
+      </p>
+
+
+      <div class="feature-grid">
+
+        <div class="feature">
+
+          <div class="feature-icon">💡</div>
+
+          <h3>학생이 설명합니다</h3>
+
+          <p>
+            선생님의 설명만 듣는 것이 아니라
+            배운 개념을 자신의 언어로 설명하며
+            진짜 이해했는지 확인합니다.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">📊</div>
+
+          <h3>개인별 피드백</h3>
+
+          <p>
+            수업에서 드러난 학생의 강점과
+            취약 개념을 분석하여 다음 학습에 반영합니다.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">🎯</div>
+
+          <h3>수준별 문제</h3>
+
+          <p>
+            모든 학생에게 똑같은 문제만 제공하지 않고
+            현재 수준에 맞는 문제부터 심화 문제까지 단계적으로 제공합니다.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">🔬</div>
+
+          <h3>사고하는 과학</h3>
+
+          <p>
+            단순 암기를 넘어 현상을 설명하고
+            새로운 상황에 개념을 적용하는 능력을 기릅니다.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       METHOD
+  ========================= -->
+
+  <section id="method" class="method">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        CLASS SYSTEM
+      </div>
+
+      <h2 class="section-title">
+        수업은 이렇게 진행됩니다.
+      </h2>
+
+      <p class="section-description">
+        한 방향으로 듣기만 하는 수업에서 벗어나
+        학생이 직접 사고하고 참여하는 구조로 수업을 진행합니다.
+      </p>
+
+
+      <div class="method-list">
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 01</div>
+
+          <h3>개념 이해</h3>
+
+          <p>
+            단순 암기보다 과학적 현상이
+            왜 그렇게 나타나는지 이해합니다.
+          </p>
+
+        </div>
+
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 02</div>
+
+          <h3>문제 해결</h3>
+
+          <p>
+            배운 개념을 다양한 문제에 적용하며
+            문제를 해결하는 과정을 연습합니다.
+          </p>
+
+        </div>
+
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 03</div>
+
+          <h3>학생의 설명</h3>
+
+          <p>
+            학생이 직접 풀이 과정과 개념을 설명합니다.
+            설명할 수 있어야 제대로 이해한 것으로 봅니다.
+          </p>
+
+        </div>
+
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 04</div>
+
+          <h3>심화 사고</h3>
+
+          <p>
+            한 단계 더 어려운 문제와 새로운 상황에
+            개념을 적용하며 사고력을 확장합니다.
+          </p>
+
+        </div>
+
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 05</div>
+
+          <h3>오답 분석</h3>
+
+          <p>
+            단순히 정답과 오답을 확인하지 않고
+            왜 틀렸는지를 분석합니다.
+          </p>
+
+        </div>
+
+
+        <div class="method-card">
+
+          <div class="method-number">STEP 06</div>
+
+          <h3>개인별 피드백</h3>
+
+          <p>
+            수업 결과를 바탕으로 학생별 취약점을 확인하고
+            다음 학습 방향을 설정합니다.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CURRICULUM
+  ========================= -->
+
+  <section id="curriculum">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        CURRICULUM
+      </div>
+
+      <h2 class="section-title">
+        학생의 목표에 맞춰<br>
+        수업을 설계합니다.
+      </h2>
+
+      <p class="section-description">
+        학교 시험 대비부터 개념 심화와 과학적 사고력 향상까지
+        학생의 현재 수준과 목표에 맞춰 진행합니다.
+      </p>
+
+
+      <div class="curriculum-grid">
+
+        <div class="curriculum">
+
+          <h3>중등 과학</h3>
+
+          <p>
+            중학교 과학의 핵심 개념을 확실하게 이해합니다.
+          </p>
+
+          <ul>
+            <li>학교 시험 대비</li>
+            <li>개념 완성</li>
+            <li>단원별 문제풀이</li>
+            <li>심화 문제</li>
+          </ul>
+
+        </div>
+
+
+        <div class="curriculum">
+
+          <h3>통합과학</h3>
+
+          <p>
+            고등학교 과학의 기본기를 탄탄하게 만듭니다.
+          </p>
+
+          <ul>
+            <li>핵심 개념 정리</li>
+            <li>내신 대비</li>
+            <li>자료 해석</li>
+            <li>개념 응용</li>
+          </ul>
+
+        </div>
+
+
+        <div class="curriculum">
+
+          <h3>물리학</h3>
+
+          <p>
+            공식을 외우는 것에서 벗어나
+            물리 현상을 이해합니다.
+          </p>
+
+          <ul>
+            <li>개념 이해</li>
+            <li>수식 적용</li>
+            <li>문제풀이</li>
+            <li>고난도 사고 문제</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DIFFERENCE
+  ========================= -->
+
+  <section class="difference">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        DIFFERENCE
+      </div>
+
+      <h2 class="section-title">
+        같은 그룹 수업이라도<br>
+        관리 방식은 다릅니다.
+      </h2>
+
+      <p class="section-description">
+        그룹 수업의 장점은 살리고,
+        그룹 수업의 단점은 최소화합니다.
+      </p>
+
+
+      <div class="comparison">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>일반적인 그룹 수업</th>
+              <th>SCIENCE LAB</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>수업 방식</td>
+              <td>선생님 설명 중심</td>
+              <td>학생 참여 중심</td>
+            </tr>
+
+            <tr>
+              <td>문제 난이도</td>
+              <td>동일한 문제</td>
+              <td>수준별 문제</td>
+            </tr>
+
+            <tr>
+              <td>오답 관리</td>
+              <td>정답 확인</td>
+              <td>오답 원인 분석</td>
+            </tr>
+
+            <tr>
+              <td>학생 관리</td>
+              <td>그룹 중심</td>
+              <td>개인별 피드백</td>
+            </tr>
+
+            <tr>
+              <td>수업 목표</td>
+              <td>문제 풀이</td>
+              <td>개념 이해 + 사고력</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TEACHER
+  ========================= -->
+
+  <section id="teacher">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        TEACHER
+      </div>
+
+      <div class="teacher-box">
+
+        <div class="teacher-photo">
+          🔬
+        </div>
+
+
+        <div class="teacher-text">
+
+          <h3>
+            과학을 잘 가르치는 것보다<br>
+            과학을 이해하게 만드는 것.
+          </h3>
+
+          <p>
+            학생이 문제의 답을 맞히는 것에서 끝나지 않고
+            왜 그런 답이 나오는지 스스로 설명할 수 있도록 지도합니다.
+          </p>
+
+          <div class="teacher-info">
+
+            <!-- 이 부분은 네 정보로 변경 -->
+
+            <span>🎓 OO대학교 OO학과</span>
+
+            <span>📚 과학 과외 경력 OO년</span>
+
+            <span>🏆 OO 관련 경력</span>
+
+            <span>🔬 과학 개념 및 문제풀이 전문</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       REVIEWS
+  ========================= -->
+
+  <section class="reviews">
+
+    <div class="section-inner">
+
+      <div class="section-tag">
+        STUDENT REVIEW
+      </div>
+
+      <h2 class="section-title">
+        수업을 경험한 학생들의 이야기
+      </h2>
+
+      <p class="section-description">
+        실제 후기가 생기면 이 부분에 학생 및 학부모 후기를 넣으면 됩니다.
+      </p>
+
+
+      <div class="review-grid">
+
+        <div class="review">
+
+          <p>
+            "예전에는 공식을 외우기만 했는데
+            문제에서 왜 그 공식을 사용하는지 이해하게 됐어요."
+          </p>
+
+          <span>
+            중학교 3학년 학생
+          </span>
+
+        </div>
+
+
+        <div class="review">
+
+          <p>
+            "그룹 수업이라 걱정했는데
+            선생님께서 제가 부족한 부분을 따로 알려주셔서 좋았어요."
+          </p>
+
+          <span>
+            고등학교 1학년 학생
+          </span>
+
+        </div>
+
+
+        <div class="review">
+
+          <p>
+            "수업이 끝난 뒤 어떤 부분을 보완해야 하는지
+            알 수 있어서 좋았습니다."
+          </p>
+
+          <span>
+            학부모
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section id="apply" class="cta">
+
+    <h2>
+      과학을 제대로<br>
+      이해해보고 싶다면
+    </h2>
+
+    <p>
+      무료 체험수업을 통해 SCIENCE LAB의 수업을 경험해보세요.
+    </p>
+
+    <!-- ★ 실제 Google Form 주소로 변경 -->
+    <a
+      href="https://forms.google.com/"
+      target="_blank"
+      class="btn btn-primary">
+      무료 체험수업 신청하기 →
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+        © 2026 SCIENCE LAB
+      </div>
+
+      <div>
+        그룹 화상 과학수업
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
